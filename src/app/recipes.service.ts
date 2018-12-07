@@ -41,16 +41,20 @@ export class RecipesService {
     /*.then(function(recipes){
     })*/
     .then( (resp: {meals: []}) => {
-      console.log("Ricette ricevute", resp);
-      this.recipes = resp.meals.map(function(meal: any) {
+      if (resp.meals) {
+        console.log("Ricette ricevute", resp);
+        this.recipes = resp.meals.map(function(meal: any) {
+          const myRecipe = new Recipe(
+            meal.strMeal,
+            meal.strInstructions,
+            meal.strMealThumb
+            );
+          return myRecipe;
+        });
+      } else {
+        this.recipes = [];
+      }
 
-        const myRecipe = new Recipe(
-          meal.strMeal,
-          meal.strInstructions,
-          meal.strMealThumb
-          );
-        return myRecipe;
-      });
 
       console.log("sono recipes", this.recipes);
       this.newRecipes.emit(this.recipes);

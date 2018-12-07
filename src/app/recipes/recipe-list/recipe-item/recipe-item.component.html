@@ -1,4 +1,9 @@
-<li class="list-group-item" (click)="onSelectedItem()">
-    <img class="card-img-top" [src]="currentRicetta.imagePath" style="width: 100px;height: auto;">
-    <h5 class="card-title">{{currentRicetta.name}} </h5>
+<li class="item-recipes row" (click)="onSelectedItem()">
+  <div class="col">
+    <img class="img-tumbnail" [src]="currentRicetta.imagePath" style="width: 100px;height: auto;">
+  </div>
+<div class="col-9">
+<h5 class="card-title">{{currentRicetta.name}} </h5>
+</div>
+
 </li>
