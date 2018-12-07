@@ -1,4 +1,6 @@
+import { RecipesService } from 'src/app/recipes.service';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: RecipesService) {}
+
+  searchTerm = new FormControl('cake');
+  submitSearch() {
+    this.service.searchRecipes(this.searchTerm.value);
+  }
 
   ngOnInit() {
   }

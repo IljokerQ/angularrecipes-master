@@ -28,6 +28,6 @@ constructor(private serv: RecipesService) {
 }
 
   ngOnInit() {
-    this.serv.searchRecipes("butter");
+    this.serv.searchRecipes("cake");
   }
 }
