@@ -11,7 +11,8 @@ export class RecipesService {
 
    recipes: Recipe[] = [];
 
-   // recipeChanged = new EventEmitter<Recipe>();
+  recipeChanged = new EventEmitter<Recipe>();
+
   newRecipes = new EventEmitter<Recipe[]>();
 
   selectedRecipe: Recipe = null;
@@ -19,7 +20,7 @@ export class RecipesService {
   public changeSelectedRecipe(ricetta: Recipe) {
     console.log("changeSelectedRecipe", ricetta);
     this.selectedRecipe = ricetta;
-   // this.recipeChanged.emit(this.selectedRecipe);
+    this.recipeChanged.emit(this.selectedRecipe);
   }
 
  /* public getRecipe() {
